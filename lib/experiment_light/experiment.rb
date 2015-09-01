@@ -9,11 +9,11 @@ class ExperimentLight::Experiment
         raise "Cannot find experiment '#{experiment_name}', check out your experiment.yml file"
       end
 
-      Hash(@experiment_data[experiment_name][Rails.env])
+      @experiment_data[experiment_name][Rails.env]
     end
 
     def off?(experiment_name)
-      on?(experiment_name)
+      !on?(experiment_name)
     end
 
     private
