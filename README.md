@@ -24,6 +24,28 @@ Run install generator:
 
     $ rails generate experiment_light:install
 
+A yaml file named `experiment.yml` will be added into `config/` after running install generator, now your can define your experimental features:
+
+    foo:
+        development: true
+        test: true
+        production: false
+
+    bar:
+        development: false
+        test: true
+        production: false
+
+Now you can use it in your views like this:
+
+    <% if ExperimentLight::Experiment.on?(:foo) %>
+        <p>Experiment foo is on</p>
+    <% end %>
+
+    <% if ExperimentLight::Experiment.off?(:bar) %>
+        <p>Experiment bar is off</p>
+    <% end %>
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/experiment_light/fork )
