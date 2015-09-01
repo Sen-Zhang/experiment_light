@@ -1,0 +1,17 @@
+# Example:
+#
+# experiment_feature_a:
+#   development: true
+#   test: true
+#   dev: true
+#   qa: true
+#   prodstage: true
+#   production: false
+#
+# experiment_feature_b:
+#   development: true
+#   test: true
+#   dev: true
+#   qa: true
+#   prodstage: true
+#   production: true
