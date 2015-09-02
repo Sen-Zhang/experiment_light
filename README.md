@@ -1,5 +1,8 @@
 # Experiment::Light
 
+[![Code Climate](https://codeclimate.com/github/Sen-Zhang/experiment_light/badges/gpa.svg)](https://codeclimate.com/github/Sen-Zhang/experiment_light)
+[![Build Status](https://travis-ci.org/Sen-Zhang/experiment_light.svg)](https://travis-ci.org/Sen-Zhang/experiment_light)
+
 Turn features on or off in various rails environments
 
 ## Installation

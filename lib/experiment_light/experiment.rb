@@ -1,13 +1,13 @@
 class ExperimentLight::Experiment
   class << self
-    def on?(experiment)
+    def on?(experiment, env=Rails.env)
       experiment_feature_data
 
-      @experiment_data[experiment][Rails.env] if valid_feature_name_and_env?(experiment)
+      @experiment_data[experiment][env] if valid_feature_name_and_env?(experiment, env)
     end
 
-    def off?(experiment)
-      !on?(experiment)
+    def off?(experiment, env=Rails.env)
+      !on?(experiment, env)
     end
 
     def update(experiment, env, value)

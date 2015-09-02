@@ -1,0 +1,9 @@
+---
+foo:
+  development: true
+  test: true
+  production: false
+bar:
+  development: true
+  test: false
+  production: true
