@@ -36,13 +36,45 @@ A yaml file named `experiment.yml` will be added into `config/` after running in
         test: true
         production: false
 
-Now you can use it in your views like this:
+Now you can use it in models like this:
 
-    <% if ExperimentLight::Experiment.on?(:foo) %>
+    class TestModel < ActiveRecord::Base
+      ...
+
+      if experiment_on?(:foo)
+        def foo_method
+          ...
+        end
+      end
+
+      ...
+    end
+
+In controllers like this:
+
+    class TestController < ApplicationController
+      ...
+
+      def index
+        ...
+
+        if experiment_on?(:foo)
+          redirect_to :back
+        end
+
+        ...
+      end
+
+      ...
+    end
+
+And in views like this:
+
+    <% if experiment_on?(:foo) %>
         <p>Experiment foo is on</p>
     <% end %>
 
-    <% if ExperimentLight::Experiment.off?(:bar) %>
+    <% if experiment_off?(:bar) %>
         <p>Experiment bar is off</p>
     <% end %>
 
