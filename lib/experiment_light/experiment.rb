@@ -1,5 +1,9 @@
 class ExperimentLight::Experiment
   class << self
+    def experiment_feature_data
+      @experiment_data ||= load(experiment_file_name)
+    end
+
     def on?(experiment, env=Rails.env)
       experiment_feature_data
 
@@ -41,10 +45,6 @@ class ExperimentLight::Experiment
 
     def reload!
       @experiment_data = load(experiment_file_name)
-    end
-
-    def experiment_feature_data
-      @experiment_data ||= load(experiment_file_name)
     end
 
     def save_to_yaml

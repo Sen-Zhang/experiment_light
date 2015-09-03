@@ -1,0 +1,37 @@
+<h2>Experiment Features</h2>
+
+<% @experiments.each do |feature, status| %>
+  <h4><%= feature %></h4>
+
+  <% status.each do |env, value| %>
+    <div>
+      <%= check_box_tag "#{feature}_#{env}", 1, value,
+                        class: 'js-feature-checkbox', data: {url: update_experiment_path(name: feature, env: env)} %>
+      <%= label_tag "#{feature}_#{env}", env %>
+    </div>
+  <% end %>
+<% end %>
+
+<script>
+  'use strict';
+
+  $(function () {
+    $('.js-feature-checkbox').on('change', function () {
+      var checkBox = $(this),
+          url = checkBox.data('url'),
+          value = checkBox.is(':checked') ? true : false;
+
+      $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'json',
+        data: {value: value}
+      }).done(function () {
+        alert('Feature toggle succeed!')
+      }).fail(function () {
+        alert('Feature toggle failed!')
+      })
+    });
+  });
+
+</script>

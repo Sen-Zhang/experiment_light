@@ -8,7 +8,7 @@ module ExperimentLight
       desc 'Copy experiment_sample.yml files to your application.'
 
       def copy_initializer
-        template 'experiment_sample.yml', 'config/experiment.yml'
+        copy_file 'experiment_sample.yml', 'config/experiment.yml'
       end
     end
   end
