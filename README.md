@@ -6,6 +6,8 @@
 
 Turn features on or off in various rails environments
 
+> This gem is no longer maintained. Please try my refined feature toggle engine [simple_switch](https://github.com/Sen-Zhang/simple_switch).
+
 ## Installation
 
 Add this line to your application's Gemfile:
